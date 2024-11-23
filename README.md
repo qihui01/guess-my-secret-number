@@ -1,12 +1,13 @@
 # guess-my-secret-number
-Guess my secret number between 1 to 100
 import random
     
 num = random.randint(1, 100)
 guess = None
-    
-while guess != num:
-    guess = input("guess a number between 1 and 010: ")
+guess_count = 0
+
+while True:
+    guess = int(input("Enter your guess between 1 and 100: "))
+    guess_count += 1
     guess = int(guess)
     
     if guess == num:
@@ -14,3 +15,7 @@ while guess != num:
         break
     else:
         print("nope, sorry. try again!")
+
+    if guess_count > 3:
+        print("It's okay! The secret number is " + str(num))
+        break 
